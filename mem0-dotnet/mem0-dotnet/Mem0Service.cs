@@ -75,10 +75,7 @@ namespace mem0_dotnet
             var filters = new Dictionary<string, object>() { { "userId", userId } };
             var filter = CreateFilter(filters);
 
-            var existing_memories = (await _qdrantClient.SearchAsync(_mem0Options.Collection, embeddings.ToArray(), filter, limit: _mem0Options.Limit, vectorsSelector: new WithVectorsSelector
-            {
-                Enable = true
-            })).Select(x => new
+            var existing_memories = (await _qdrantClient.SearchAsync(_mem0Options.Collection, embeddings.ToArray(), filter, limit: _mem0Options.Limit)).Select(x => new
             {
                 memoryId = Guid.Parse(x.Id.Uuid),
                 score = x.Score,
@@ -131,10 +128,7 @@ namespace mem0_dotnet
             var filters = new Dictionary<string, object>() { { "userId", userId } };
             var filter = CreateFilter(filters);
 
-            var existing_memories = await _qdrantClient.SearchAsync(_mem0Options.Collection, embeddings, filter, limit: _mem0Options.Limit, vectorsSelector: new WithVectorsSelector
-            {
-                Enable = true
-            });
+            var existing_memories = await _qdrantClient.SearchAsync(_mem0Options.Collection, embeddings, filter, limit: _mem0Options.Limit);
 
             return existing_memories;
         }
@@ -144,10 +138,7 @@ namespace mem0_dotnet
             var filters = new Dictionary<string, object>() { { "userId", userId } };
             var filter = CreateFilter(filters);
 
-            var existing_memories = await _qdrantClient.ScrollAsync(_mem0Options.Collection, filter, limit: _mem0Options.Limit, vectorsSelector: new WithVectorsSelector()
-            {
-                Enable = true,
-            });
+            var existing_memories = await _qdrantClient.ScrollAsync(_mem0Options.Collection, filter, limit: _mem0Options.Limit);
 
             return existing_memories;
         }
