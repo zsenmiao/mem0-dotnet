@@ -41,7 +41,7 @@ await mem0.SaveMemory("unique_id", "明天中午你跟我一起去看电影");
 
 搜索记忆
 var result = await mem0.SearchMemory("unique_id");
-// 或者带有查询文本
+或者带有查询文本
 var result = await mem0.SearchMemory("unique_id", "明天中午我们要做什么来着？");
 
 删除记忆
