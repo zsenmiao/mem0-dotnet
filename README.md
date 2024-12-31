@@ -36,6 +36,9 @@ services.AddMem0DotNetStore(x =>
 
 使用示例
 项目包含几个单元测试用例来展示如何使用 Mem0Service 类执行不同的任务。以下是四个主要功能的例子：
+
+Mem0Service mem0;
+
 保存记忆
 await mem0.SaveMemory("unique_id", "明天中午你跟我一起去看电影");
 
