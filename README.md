@@ -17,7 +17,7 @@
 - `ChatCompletionModel`, `TextEmbeddingModel`: 根据需求选择合适的模型。
 - `Collection`: 数据集名称。
 - `Limit`: 查询结果的数量限制。
-- `Host`: 存储服务的主机地址。
+- `Host`: Qdrant存储服务的主机地址。
 
 ```csharp
 services.AddMem0DotNet(x =>
